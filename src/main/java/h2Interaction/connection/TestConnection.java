@@ -2,6 +2,9 @@ package h2Interaction.connection;
 
 
 import parser.CSVtoPipelineObject;
+import point.Pipeline;
+
+import java.util.List;
 
 
 public class TestConnection {
@@ -12,6 +15,11 @@ public class TestConnection {
         connection.createTable(connection.connection);
         connection.createLine(CSVtoPipelineObject.readPipelinesFromCSV("D:\\Projects\\demo\\dbBestTraineeTestTask\\src\\main\\resources\\Data.csv")
                 , connection.connection);
+        List<Pipeline> l = connection.readAll(connection.connection);
+        for (Pipeline p: l
+             ) {
+            System.out.println(p);
+        }
     }
 
 }

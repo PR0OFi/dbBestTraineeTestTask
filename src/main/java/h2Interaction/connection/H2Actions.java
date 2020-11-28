@@ -3,7 +3,9 @@ package h2Interaction.connection;
 import h2Interaction.queries.Queries;
 import point.Pipeline;
 
+import java.nio.channels.Pipe;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class H2Actions {
@@ -59,4 +61,18 @@ public class H2Actions {
         }
     }
 
+    public List<Pipeline> readAll(java.sql.Connection connection) {
+        try {
+            List<Pipeline> pipelines = new ArrayList<>();
+            PreparedStatement preparedStatement = connection.prepareStatement(Queries.SELECT_ALL);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Pipeline pipeline = new Pipeline(resultSet.getInt(1), resultSet.getInt(2), resultSet.getInt(3));
+                pipelines.add(pipeline);
+            }
+            return pipelines;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
