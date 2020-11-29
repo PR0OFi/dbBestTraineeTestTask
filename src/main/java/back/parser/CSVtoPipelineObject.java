@@ -9,11 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSVtoPipelineObject {
-    public static void main(String[] args) {
-        readPipelinesFromCSV("D:\\Projects\\demo\\dbBestTraineeTestTask\\src\\main\\resources\\Data.csv");
-    }
-
-    public static List<Pipeline> readPipelinesFromCSV(String filename) {
+    public List<Pipeline> readPipelinesFromCSV(String filename) {
         List<Pipeline> pipelines = new ArrayList<>();
 
 

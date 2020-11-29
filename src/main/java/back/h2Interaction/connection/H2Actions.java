@@ -8,19 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class H2Actions {
-    public java.sql.Connection connection;
-
-    public void connectToDb() {
-        try {
-            Class.forName("org.h2.Driver");
-            connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
-
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void closeConnection() {
+    public void closeConnection(java.sql.Connection connection) {
         try {
             connection.close();
         } catch (SQLException e) {
@@ -75,5 +63,4 @@ public class H2Actions {
             throw new RuntimeException(e);
         }
     }
-
 }

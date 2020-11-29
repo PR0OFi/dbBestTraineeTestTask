@@ -2,5 +2,5 @@ package back.h2Interaction.queries;
 
 public interface Constants {
     String TABLE_NAME = "DATA";
-    String COLUMN_NAMES_TO_PUT_PIPELINE = "(STARTID, ENDPOINTID, LENGTH)";
+    String FILE_PATH = "D:\\Projects\\demo\\dbBestTraineeTestTask\\src\\main\\resources\\Data.csv";
 }

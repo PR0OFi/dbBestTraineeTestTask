@@ -27,11 +27,9 @@ public class Controller {
 
     @FXML
     void initialize() {
-        assert fieldFirstParam != null : "fx:id=\"fieldFirstParam\" was not injected: check your FXML file 'Window.fxml'.";
-        assert secondFieldParam != null : "fx:id=\"secondFieldParam\" was not injected: check your FXML file 'Window.fxml'.";
-        assert okButton != null : "fx:id=\"okButton\" was not injected: check your FXML file 'Window.fxml'.";
+
         okButton.setOnAction(event -> {
-            System.out.println("HELLO WORLD");
+
         });
 
     }
