@@ -29,10 +29,16 @@ public class Pipeline {
         return length;
     }
 
+    public void addChild(Pipeline child) {
+        if (child != null) {
+            this.childList.add(child);
+            child.setParent(this);
+        }
+    }
+
     public void setParent(Pipeline parent) {
         if (parent != null) {
             this.parent = parent;
-            parent.childList.add(this);
         }
     }
 

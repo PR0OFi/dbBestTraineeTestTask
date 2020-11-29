@@ -10,29 +10,14 @@ import back.point.SearchingPoints;
 import java.util.List;
 
 public class LaunchBack {
-    public void start(SearchingPoints s) {
+        public String search(SearchingPoints s) {
         CSVtoPipelineObject csVtoPipelineObject = new CSVtoPipelineObject();
         List<Pipeline> dataFromFile = csVtoPipelineObject.readPipelinesFromCSV(Constants.FILE_PATH);
         Procedure procedure = new Procedure();
         List<Pipeline> dataFromBase = procedure.processingToGiveAllUsers(dataFromFile);
         PipelineActions pipelineActions = new PipelineActions();
         pipelineActions.parentAssigning(dataFromBase);
-
-        for(Pipeline p : dataFromBase) {
-            System.out.println( p.getChildList());
-        }
-        System.out.println(s.getStartSearch());
-        //----------------------------
-    }
-
-    public String search(SearchingPoints s) {
-        CSVtoPipelineObject csVtoPipelineObject = new CSVtoPipelineObject();
-        List<Pipeline> dataFromFile = csVtoPipelineObject.readPipelinesFromCSV(Constants.FILE_PATH);
-        Procedure procedure = new Procedure();
-        List<Pipeline> dataFromBase = procedure.processingToGiveAllUsers(dataFromFile);
-        PipelineActions pipelineActions = new PipelineActions();
-        pipelineActions.parentAssigning(dataFromBase);
-
+                System.out.println();
         if (pipelineActions.searchRoute(s, dataFromBase) == 0) {
             return "false";
         }

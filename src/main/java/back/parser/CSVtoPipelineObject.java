@@ -2,21 +2,18 @@ package back.parser;
 
 import back.point.Pipeline;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CSVtoPipelineObject {
     public List<Pipeline> readPipelinesFromCSV(String filename) {
         List<Pipeline> pipelines = new ArrayList<>();
-
-
-        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+        File file = new File(this.getClass().getClassLoader().getResource(filename).getFile());
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line = br.readLine();
             while (line != null) {
-                String[] numbers = line.split("\\s*,\\s*");
+                String[] numbers = line.split("\\s*[,;]\\s*");
                 int[] data = new int[3];
                 for (int i = 0; i < numbers.length; i++) {
                     data[i] = Integer.parseInt(numbers[i]);
