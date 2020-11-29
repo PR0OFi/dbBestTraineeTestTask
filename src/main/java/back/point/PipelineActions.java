@@ -3,16 +3,15 @@ package back.point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class PipelineActions {
 
     public void parentAssigning(List<Pipeline> list) {
         for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < list.size(); j++) {
+            for (Pipeline value : list) {
                 Pipeline pipeline = list.get(i);
-                if (pipeline.getEndpointId() == list.get(j).getStartId()) {
-                    pipeline.addChild(list.get(j));
+                if (pipeline.getEndpointId() == value.getStartId()) {
+                    pipeline.addChild(value);
                 }
             }
         }
@@ -56,7 +55,7 @@ public class PipelineActions {
             Pipeline pipeline = currentPipeline;
             while (true) {
                 path.add(pipeline);
-                if (pipeline.getStartId() == searchingPoint.getStartSearch()){
+                if (pipeline.getStartId() == searchingPoint.getStartSearch()) {
                     break;
                 }
                 pipeline = pipeline.getParent();

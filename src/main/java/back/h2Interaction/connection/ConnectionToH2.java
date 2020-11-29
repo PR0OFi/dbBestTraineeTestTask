@@ -8,7 +8,7 @@ public class ConnectionToH2 {
     private java.sql.Connection connection;
 
 
-    public void connectToDb(){
+    public void connectToDb() {
         try {
             Class.forName("org.h2.Driver");
             connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
