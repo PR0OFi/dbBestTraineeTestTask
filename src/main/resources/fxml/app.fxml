@@ -13,13 +13,14 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="fieldFirstParam" layoutX="14.0" layoutY="34.0" promptText="from" style="-fx-background-color: #FFFFFF;" />
+      <TextField fx:id="fieldFirstParam" layoutX="14.0" layoutY="34.0" promptText="from" style="-fx-background-color: #ffffff;" />
       <Label layoutX="14.0" layoutY="69.0" prefHeight="20.0" prefWidth="127.0" text="Enter coordinate">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <TextField fx:id="secondFieldParam" layoutX="14.0" layoutY="101.0" promptText="to" style="-fx-background-color: #FFFFFF;" />
-      <Button fx:id="okButton" layoutX="14.0" layoutY="145.0" mnemonicParsing="false" text="OK" />
+      <Button fx:id="okButton" layoutX="14.0" layoutY="145.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="89.0" text="OK" />
+      <TextField fx:id="outputField" layoutX="14.0" layoutY="265.0" promptText="output" style="-fx-background-color: #FFFFFF;" />
    </children>
 </AnchorPane>

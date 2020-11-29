@@ -32,7 +32,7 @@ public class Pipeline {
     public void setParent(Pipeline parent) {
         if (parent != null) {
             this.parent = parent;
-            this.parent.childList.add(this);
+            parent.childList.add(this);
         }
     }
 

@@ -5,10 +5,12 @@ import java.util.List;
 public class PipelineActions {
 
     public void parentAssigning(List<Pipeline> list) {
+
         for (int i = 0; i < list.size() - 1; i++) {
             for (int j = i; j < list.size() - 1; j++) {
-                if (list.get(i).getEndpointId() == list.get(j).getStartId()) {
-                    list.get(j).setParent(list.get(i));
+                Pipeline pipeline = list.get(i);
+                if (pipeline.getEndpointId() == list.get(j).getStartId()) {
+                    list.get(j).setParent(pipeline);
                 }
             }
         }
@@ -35,7 +37,6 @@ public class PipelineActions {
         } else {
             for (Pipeline p : current.getChildList()) {
                 sum += current.getLength() + deepSearch(searchingPoints, p);
-                break;
             }
         }
         return sum;
