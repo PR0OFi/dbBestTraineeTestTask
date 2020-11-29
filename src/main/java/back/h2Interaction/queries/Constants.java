@@ -1,4 +1,4 @@
-package h2Interaction.queries;
+package back.h2Interaction.queries;
 
 public interface Constants {
     String TABLE_NAME = "DATA";

@@ -1,8 +1,8 @@
-package h2Interaction.connection;
+package back.h2Interaction.connection;
 
 
-import parser.CSVtoPipelineObject;
-import point.Pipeline;
+import back.parser.CSVtoPipelineObject;
+import back.point.Pipeline;
 
 import java.util.List;
 

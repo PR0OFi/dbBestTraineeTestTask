@@ -1,9 +1,8 @@
-package h2Interaction.connection;
+package back.h2Interaction.connection;
 
-import h2Interaction.queries.Queries;
-import point.Pipeline;
+import back.h2Interaction.queries.Queries;
+import back.point.Pipeline;
 
-import java.nio.channels.Pipe;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +65,7 @@ public class H2Actions {
             List<Pipeline> pipelines = new ArrayList<>();
             PreparedStatement preparedStatement = connection.prepareStatement(Queries.SELECT_ALL);
             ResultSet resultSet = preparedStatement.executeQuery();
+
             while (resultSet.next()) {
                 Pipeline pipeline = new Pipeline(resultSet.getInt(1), resultSet.getInt(2), resultSet.getInt(3));
                 pipelines.add(pipeline);
@@ -75,4 +75,5 @@ public class H2Actions {
             throw new RuntimeException(e);
         }
     }
+
 }

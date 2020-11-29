@@ -1,15 +1,10 @@
-package parser;
+package back.parser;
 
-import point.Pipeline;
+import back.point.Pipeline;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.channels.Pipe;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
