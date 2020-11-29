@@ -36,6 +36,10 @@ public class Pipeline {
         }
     }
 
+    public Pipeline getParent() {
+        return parent;
+    }
+
     public void setParent(Pipeline parent) {
         if (parent != null) {
             this.parent = parent;

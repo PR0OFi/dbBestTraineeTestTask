@@ -3,6 +3,7 @@ package back.point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class PipelineActions {
 
@@ -22,37 +23,50 @@ public class PipelineActions {
                 .filter(p -> p.getStartId() == searchingPoints.getStartSearch())
                 .collect(Collectors.toList());
 
-        return calculateMinLengthIfExists(searchingPoints.getEndSearch(), collect);
+        return calculateMinLengthIfExists(searchingPoints, collect);
     }
 
-    private int calculateMinLengthIfExists(int endID, List<Pipeline> pipelines) {
+    private int calculateMinLengthIfExists(SearchingPoints searchingPoint, List<Pipeline> pipelines) {
         List<List<Pipeline>> existingPaths = new ArrayList<>();
         for (Pipeline currentPipe : pipelines) {
-            List<Pipeline> path = new ArrayList<>();
-            List<Pipeline> existingPath = deepSearch(endID, currentPipe, path);
-            if (existingPath != null) {
-                existingPaths.add(existingPath);
-            }
+            deepSearch(searchingPoint, currentPipe, existingPaths);
         }
         return calculateMinLength(existingPaths);
     }
 
     private int calculateMinLength(List<List<Pipeline>> existingPath) {
-        return
-                existingPath.stream()
-                .flatMap(pipelineList -> pipelineList.stream())
-                .mapToInt(Pipeline::getLength)
-                .sum();
+        int min = Integer.MAX_VALUE;
+        for (List<Pipeline> path : existingPath) {
+            int sum = 0;
+            for (Pipeline singlePipe : path) {
+                sum += singlePipe.getLength();
+            }
+            if (sum < min) {
+                min = sum;
+            }
+        }
+        return min;
     }
 
-    private List<Pipeline> deepSearch(int endID, Pipeline currentPipeline, List<Pipeline> path) {
-        path.add(currentPipeline);
-        if (currentPipeline.getEndpointId() == endID) {
-            return path;
+    private void deepSearch(SearchingPoints searchingPoint,
+                            Pipeline currentPipeline,
+                            List<List<Pipeline>> exitingPaths) {
+        if (currentPipeline.getEndpointId() == searchingPoint.getEndSearch()) {
+            List<Pipeline> path = new ArrayList<>();
+            Pipeline pipeline = currentPipeline;
+            while (true) {
+                path.add(pipeline);
+                if (pipeline.getStartId() == searchingPoint.getStartSearch()){
+                    break;
+                }
+                pipeline = pipeline.getParent();
+            }
+            exitingPaths.add(path);
+            return;
         }
         for (Pipeline nextPipeline : currentPipeline.getChildList()) {
-            deepSearch(endID, nextPipeline, path);
+            deepSearch(searchingPoint, nextPipeline, exitingPaths);
         }
-        return null;
+
     }
 }
