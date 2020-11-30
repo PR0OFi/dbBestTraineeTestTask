@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVtoPipelineObject {
+public class PipelineMapper {
     public List<Pipeline> readPipelinesFromCSV(String filename) {
         List<Pipeline> pipelines = new ArrayList<>();
         File file = new File(this.getClass().getClassLoader().getResource(filename).getFile());

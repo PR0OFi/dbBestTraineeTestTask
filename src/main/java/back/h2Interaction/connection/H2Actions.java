@@ -3,7 +3,9 @@ package back.h2Interaction.connection;
 import back.h2Interaction.queries.Queries;
 import back.point.Pipeline;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +36,7 @@ public class H2Actions {
         }
     }
 
-    public void createLine(List<Pipeline> data, java.sql.Connection connection) {
+    public void writeData(List<Pipeline> data, java.sql.Connection connection) {
         for (Pipeline p : data) {
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement(Queries.CREATE_PIPELINE);
