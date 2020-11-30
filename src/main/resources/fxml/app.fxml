@@ -10,23 +10,25 @@
             prefWidth="700.0" style="-fx-background-color: #A9A9A9;" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="front.application.Controller">
     <children>
-        <Label layoutX="14.0" layoutY="14.0" prefHeight="20.0" prefWidth="127.0" text="Enter coordinate">
+        <Label layoutX="14.0" layoutY="74.0" prefHeight="20.0" prefWidth="127.0" text="Enter coordinate">
             <font>
                 <Font size="14.0"/>
             </font>
         </Label>
-        <TextField fx:id="fieldFirstParam" layoutX="14.0" layoutY="34.0" promptText="from"
+        <TextField fx:id="fieldFirstParam" layoutX="14.0" layoutY="94.0" promptText="from"
                    style="-fx-background-color: #ffffff;"/>
-        <Label layoutX="14.0" layoutY="69.0" prefHeight="20.0" prefWidth="127.0" text="Enter coordinate">
+        <Label layoutX="14.0" layoutY="129.0" prefHeight="20.0" prefWidth="127.0" text="Enter coordinate">
             <font>
                 <Font size="14.0"/>
             </font>
         </Label>
-        <TextField fx:id="secondFieldParam" layoutX="14.0" layoutY="101.0" promptText="to"
+        <TextField fx:id="secondFieldParam" layoutX="14.0" layoutY="161.0" promptText="to"
                    style="-fx-background-color: #FFFFFF;"/>
-        <Button fx:id="okButton" layoutX="14.0" layoutY="145.0" mnemonicParsing="false" prefHeight="36.0"
+        <Button fx:id="okButton" layoutX="14.0" layoutY="205.0" mnemonicParsing="false" prefHeight="36.0"
                 prefWidth="89.0" text="OK"/>
-        <TextField fx:id="outputField" layoutX="14.0" layoutY="265.0" promptText="output"
+        <TextField fx:id="outputField" layoutX="14.0" layoutY="325.0" promptText="output"
                    style="-fx-background-color: #FFFFFF;"/>
+        <Button fx:id="update_data" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="89.0" text="Update Data"/>
     </children>
 </AnchorPane>

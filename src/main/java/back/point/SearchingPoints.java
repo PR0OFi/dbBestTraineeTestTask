@@ -1,8 +1,8 @@
 package back.point;
 
 public class SearchingPoints {
-    private int startSearch;
-    private int endSearch;
+    private final int startSearch;
+    private final int endSearch;
 
     public SearchingPoints(int startSearch, int endSearch) {
         this.startSearch = startSearch;

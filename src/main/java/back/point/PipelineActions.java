@@ -21,7 +21,6 @@ public class PipelineActions {
         List<Pipeline> collect = allPipelines.stream()
                 .filter(p -> p.getStartId() == searchingPoints.getStartSearch())
                 .collect(Collectors.toList());
-
         return calculateMinLengthIfExists(searchingPoints, collect);
     }
 
@@ -66,6 +65,5 @@ public class PipelineActions {
         for (Pipeline nextPipeline : currentPipeline.getChildList()) {
             deepSearch(searchingPoint, nextPipeline, exitingPaths);
         }
-
     }
 }

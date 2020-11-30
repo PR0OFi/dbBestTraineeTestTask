@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Pipeline {
     private Pipeline parent;
-    private int startId;
-    private int endpointId;
-    private int length;
+    private final int startId;
+    private final int endpointId;
+    private final int length;
     private List<Pipeline> childList = new ArrayList<>();
 
     public Pipeline(int startId, int endpointId, int length) {

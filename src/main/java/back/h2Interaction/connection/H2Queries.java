@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class H2Actions {
+public class H2Queries {
     public void closeConnection(java.sql.Connection connection) {
         try {
             connection.close();
